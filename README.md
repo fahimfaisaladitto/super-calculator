@@ -1,5 +1,5 @@
 # Super Calculator
-<h4 align="left">Welcome to Super Calculator, a sleek, modern, and user-friendly web-based calculator designed for simplicity and efficiency. With its intuitive interface and beautiful design, performing calculations has never been more enjoyable.</h4>
+<h4 align="left">A sleek, modern, and user-friendly web-based calculator designed for simplicity and efficiency. With its intuitive interface and beautiful design, performing calculations has never been more enjoyable.</h4>
 <h2 align="left">Link: https://fahimfaisaladitto.github.io/super-calculator/ </h2>
 
 # Screenshots 

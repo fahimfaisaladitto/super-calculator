@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="main-card relative w-full max-w-md border rounded-2xl shadow-2xl p-6 fade-in">
+        
+        <!-- Dark Mode Toggle -->
+        <div class="absolute top-5 right-5">
+            <input type="checkbox" id="darkModeToggle" class="hidden"/>
+            <label for="darkModeToggle" class="toggle-bg w-14 h-8 rounded-full flex items-center p-1 cursor-pointer transition-colors">
+                <span class="toggle-ball w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ease-in-out" id="toggleBall">
+                    <svg id="sunIcon" class="w-4 h-4 m-1 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="moonIcon" class="w-4 h-4 m-1 text-sky-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </span>
+            </label>
+        </div>
+        
+        <!-- Icon and Header Text -->
+        <div class="text-center mb-6">
+            <div class="inline-block p-3 bg-black/5 rounded-full mb-4">
+                <svg class="w-10 h-10 accent-text" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.1" d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" fill="currentColor"/>
+                    <path d="M9 7H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 17V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 11H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 11H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 11H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 14H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 17H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold">Super Calculator</h1>
+            <p class="mt-1" style="color: var(--text-secondary);">A totally normal calculator.</p>
+        </div>
+
+        <!-- Input Section -->
+        <div class="space-y-4">
+            <!-- First Number Input -->
+            <div class="flex items-center space-x-2">
+                <input type="number" id="num1" value="0" readonly class="input-field text-center w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]">
+                <div class="flex flex-col space-y-1">
+                    <button id="num1-up" class="input-field rounded-md p-1 active:scale-90 transition-transform"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg></button>
+                    <button id="num1-down" class="input-field rounded-md p-1 active:scale-90 transition-transform"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                </div>
+            </div>
+            
+            <!-- Operator -->
+            <div class="flex items-center space-x-2">
+                <input type="text" id="operator" value="+" readonly class="input-field text-center w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]">
+                <div class="flex flex-col space-y-1">
+                    <button id="op-up" class="input-field rounded-md p-1 active:scale-90 transition-transform"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg></button>
+                    <button id="op-down" class="input-field rounded-md p-1 active:scale-90 transition-transform"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                </div>
+            </div>
+
+            <!-- Second Number Input -->
+            <div class="flex items-center space-x-2">
+                <input type="number" id="num2" value="0" readonly class="input-field text-center w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]">
+                <div class="flex flex-col space-y-1">
+                    <button id="num2-up" class="input-field rounded-md p-1 active:scale-90 transition-transform"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg></button>
+                    <button id="num2-down" class="input-field rounded-md p-1 active:scale-90 transition-transform"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-4 pt-2">
+                <button id="clear-btn" class="w-full p-3 text-lg font-semibold rounded-lg transition-transform transform hover:scale-105" style="background-color: var(--input-bg); color: var(--text-primary);">Clear</button>
+                <button id="calculate-btn" class="w-full p-3 text-lg font-semibold text-white rounded-lg transition-transform transform hover:scale-105" style="background-color: var(--accent-color);">Calculate</button>
+            </div>
+        </div>
+
+        <!-- Prank Result -->
+        <div id="result-container" class="text-center mt-6 h-20 flex items-center justify-center">
+             <div id="result" class="result-box p-4 text-md rounded-lg hidden">
+                <p>Hi! Welcome to ChatGPT. Is there anything I can assist you with today?</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
